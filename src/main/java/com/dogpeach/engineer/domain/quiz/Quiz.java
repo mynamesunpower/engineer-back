@@ -14,7 +14,7 @@ public class Quiz {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 255, nullable = false)
+    @Column(length = 1, nullable = false)
     private String quizType;
 
     @Column(length = 30, nullable = false)
@@ -23,7 +23,7 @@ public class Quiz {
     @Column(length = 30, nullable = true)
     private String category2;
 
-    @Column(length = 1000, nullable = false)
+    @Column(nullable = false)
     private String quiz;
 
     @Column(length = 500, nullable = false)
@@ -40,6 +40,7 @@ public class Quiz {
 
     @Column
     private Long solvedNumber;
+
     @Column
     private Long answeredNumber;
 
