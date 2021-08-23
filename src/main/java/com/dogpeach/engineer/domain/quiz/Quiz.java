@@ -20,7 +20,7 @@ public class Quiz {
     @Column(length = 30, nullable = false)
     private String category1;
 
-    @Column(length = 30, nullable = true)
+    @Column(length = 30)
     private String category2;
 
     @Column(nullable = false)
@@ -32,10 +32,10 @@ public class Quiz {
     @Column(length = 1, nullable = false)
     private String previousYn;
 
-    @Column(length = 4, nullable = false)
+    @Column(length = 4)
     private String previousYear;
 
-    @Column(length = 1, nullable = false)
+    @Column(length = 1)
     private String previousNumber;
 
     @Column
