@@ -1,11 +1,9 @@
-package com.dogpeach.engineer.web.dto;
+package com.dogpeach.engineer.web.dto.request;
 
 import com.dogpeach.engineer.domain.quiz.Quiz;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.Column;
 
 @Getter
 @NoArgsConstructor
