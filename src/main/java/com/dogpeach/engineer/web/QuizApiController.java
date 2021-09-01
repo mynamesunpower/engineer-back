@@ -14,6 +14,9 @@ public class QuizApiController {
 
     private final QuizService quizService;
 
+    @GetMapping("/api/v1/quiz/length")
+    public int getLength() { return quizService.getLength(); }
+
     @GetMapping("/api/v1/quiz/{id}")
     public QuizResponseDto getQuiz(@PathVariable Long id) {
         return quizService.findById(id);

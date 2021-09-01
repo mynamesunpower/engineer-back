@@ -14,6 +14,10 @@ public class QuizService {
 
     private final QuizRepository quizRepository;
 
+    public int getLength() {
+        return quizRepository.findAll().size();
+    }
+
     @Transactional
     public Long save(QuizSaveRequestDto quiz) {
         return quizRepository.save(quiz.toEntity()).getId();

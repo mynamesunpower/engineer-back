@@ -13,8 +13,10 @@ spring:
       jdbc
 
 
+
 # Logs
 logging:
   level:
     root:
       info
+
