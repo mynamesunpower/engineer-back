@@ -27,5 +27,8 @@ public class QuizApiController {
       return quizService.save(requestDto);
     }
 
-
+    @PatchMapping("/api/v1/quiz/solved/{id}")
+    public Long updateNumber(@PathVariable Long id, @RequestBody QuizSaveRequestDto requestDto) {
+        return quizService.updateNumber(id, requestDto);
+    }
 }

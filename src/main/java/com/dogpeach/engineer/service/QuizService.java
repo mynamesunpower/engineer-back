@@ -29,4 +29,17 @@ public class QuizService {
 
         return new QuizResponseDto(quiz);
     }
+
+    @Transactional
+    public Long updateNumber(Long id, QuizSaveRequestDto requestDto) {
+        Quiz quiz = quizRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 ID의 퀴즈 없음. id: " + id));
+
+        quiz.setAnsweredNumber(quiz.getAnsweredNumber() + 1);
+        if (requestDto.getIsCorrect() == 1) {
+            quiz.setSolvedNumber(quiz.getSolvedNumber() + 1);
+        }
+
+        return quizRepository.save(quiz).getId();
+    }
 }

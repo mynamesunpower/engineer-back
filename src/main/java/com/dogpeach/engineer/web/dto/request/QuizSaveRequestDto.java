@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class QuizSaveRequestDto {
 
+    private int isCorrect;
     private String quizType;
     private String category1;
     private String category2;
