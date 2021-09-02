@@ -2,6 +2,7 @@ package com.dogpeach.engineer.service;
 
 import com.dogpeach.engineer.domain.quiz.Quiz;
 import com.dogpeach.engineer.domain.quiz.QuizRepository;
+import com.dogpeach.engineer.web.dto.request.QuizUpdateRequestDto;
 import com.dogpeach.engineer.web.dto.response.QuizResponseDto;
 import com.dogpeach.engineer.web.dto.request.QuizSaveRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -31,15 +32,12 @@ public class QuizService {
     }
 
     @Transactional
-    public Long updateNumber(Long id, QuizSaveRequestDto requestDto) {
+    public Long updateNumber(Long id, QuizUpdateRequestDto requestDto) {
         Quiz quiz = quizRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 ID의 퀴즈 없음. id: " + id));
 
-        quiz.setAnsweredNumber(quiz.getAnsweredNumber() + 1);
-        if (requestDto.getIsCorrect() == 1) {
-            quiz.setSolvedNumber(quiz.getSolvedNumber() + 1);
-        }
+        quiz.updateNumber(requestDto.getIsCorrect() == 1);
 
-        return quizRepository.save(quiz).getId();
+        return id;
     }
 }

@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "quiz")
-public class Quiz {
+public class Quiz extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,5 +64,12 @@ public class Quiz {
         this.solvedNumber = solvedNumber;
         this.answeredNumber = answeredNumber;
         this.description = description;
+    }
+
+    public void updateNumber(boolean isCorrect) {
+        this.answeredNumber++;
+        if (isCorrect) {
+            this.solvedNumber++;
+        }
     }
 }

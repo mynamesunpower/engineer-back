@@ -1,6 +1,7 @@
 package com.dogpeach.engineer.web;
 
 import com.dogpeach.engineer.service.QuizService;
+import com.dogpeach.engineer.web.dto.request.QuizUpdateRequestDto;
 import com.dogpeach.engineer.web.dto.response.QuizResponseDto;
 import com.dogpeach.engineer.web.dto.request.QuizSaveRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +29,7 @@ public class QuizApiController {
     }
 
     @PatchMapping("/api/v1/quiz/solved/{id}")
-    public Long updateNumber(@PathVariable Long id, @RequestBody QuizSaveRequestDto requestDto) {
+    public Long updateNumber(@PathVariable Long id, @RequestBody QuizUpdateRequestDto requestDto) {
         return quizService.updateNumber(id, requestDto);
     }
 }
