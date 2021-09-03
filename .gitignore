@@ -6,4 +6,5 @@
 /out
 
 # oauth property
-/src/main/resources
+application-oauth.yml
+application-real-db.yml
