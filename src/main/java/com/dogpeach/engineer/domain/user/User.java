@@ -13,10 +13,10 @@ import javax.persistence.*;
 public class User extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long pk;
 
     @Column(nullable = false)
-    private String nickname;
+    private String name;
 
     @Column(nullable = false)
     private String email;
@@ -41,8 +41,8 @@ public class User extends BaseTimeEntity {
     private String wrongQuizNo;
 
     @Builder
-    public User(String nickname, String email, Role role, Integer answered, Integer solved, Integer failed, String solvedQuizNo, String wrongQuizNo) {
-        this.nickname = nickname;
+    public User(String name, String email, Role role, Integer answered, Integer solved, Integer failed, String solvedQuizNo, String wrongQuizNo) {
+        this.name= name;
         this.email = email;
         this.role = role;
         this.answered = answered;
@@ -52,8 +52,8 @@ public class User extends BaseTimeEntity {
         this.wrongQuizNo = wrongQuizNo;
     }
 
-    public User update(String nickname) {
-        this.nickname = nickname;
+    public User update(String name) {
+        this.name = name;
 
         return this;
     }
